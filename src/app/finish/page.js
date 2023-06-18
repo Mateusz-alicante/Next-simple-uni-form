@@ -6,6 +6,7 @@ import {
   edLevelAtom,
   linkedInAccountAtom,
 } from "../../utils/atoms";
+import axios from "axios";
 import { useEffect } from "react";
 import { useAtom } from "jotai";
 
@@ -15,7 +16,7 @@ export default () => {
   const [edLevel, setEdLevel] = useAtom(edLevelAtom);
   const [linkedInAccount, setLinkedInAccount] = useAtom(linkedInAccountAtom);
 
-  useEffect(async () => {
+  const sendFrom = async () => {
     console.log("edLevel:   ", dreamMayor);
     console.log("dreamSchool:   ", dreamSchool);
     console.log("dreamMayor:    ", edLevel);
@@ -29,6 +30,10 @@ export default () => {
       linkedInAccount,
     });
     console.log(repsonse);
+  };
+
+  useEffect(() => {
+    sendFrom();
   }, []);
 
   return (
